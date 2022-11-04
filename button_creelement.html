@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        button{
+            border: 0px solid black;
+            border-radius: 5px;
+            font-size: 25px;
+            width: 250px;
+            height: 50px;;
+            color: white;
+            background-color:#4CAF50;
+        }
+        button:hover{
+            background-color:#DDDDDD;
+        }
+
+        #enter1{
+            border: 0px solid black;
+            border-radius: 5px;
+            font-size: 22px;
+            width: 125px;
+            height: 45px;
+            color: white;
+            background-color:#4CAF50;
+            float:right;
+            margin-right: 10px;
+        }
+        #enter2{
+            border: 0px solid black;
+            border-radius: 5px;
+            font-size: 22px;
+            width: 125px;
+            height: 45px;
+            color: white;
+            background-color:#4CAF50;
+            margin-right: 10px;
+        }
+
+        #enter1:hover{
+            background-color:#DDDDDD;
+        }
+        #enter2:hover{
+            background-color:#DDDDDD;
+        }
+
+        #close1{
+            border: 0px solid black;
+            border-radius: 5px;
+            font-size: 22px;
+            width: 125px;
+            height: 45px;
+            color: white;
+            background-color:rgba(230, 54, 54, 0.866);
+            float:right;
+        }
+        #close2{
+            border: 0px solid black;
+            border-radius: 5px;
+            font-size: 22px;
+            width: 125px;
+            height: 45px;
+            color: white;
+            background-color:rgba(230, 54, 54, 0.866);
+        }
+        #close1:hover{
+            background-color:#DDDDDD;
+        }
+        #close2:hover{
+            background-color:#DDDDDD;
+        }
+        
+        #div0{
+            border: 0px solid black;
+            display:flex;
+            flex-direction:row;
+            margin-top:10px;
+        }        
+        #div1{
+            border: 0px solid black;
+            width:20%;
+            display:flex;
+            flex-direction:column-reverse;
+            text-align: center;
+        }
+        #div2,#div3,#div4{
+            border: 0px solid black;
+            width:20%;
+            text-align: center;
+        }
+        #div5{
+            display:flex;
+            flex-direction:row-reverse;
+            flex-wrap:wrap;
+            border: 0px solid black;
+            width: 20%;
+        }
+
+        h1{
+            display: flex;
+            flex-direction:column;
+            text-align: center;
+        }
+        #textenter{
+            color: black;
+        }
+        p,blockquote{
+            display: inline-block;
+            font-size: 25px;
+        }
+
+        a{
+            display: inline-block;
+            margin-right:5px;
+            font-size: 25px;
+            color: blue;
+        }
+        a:hover{ /*鼠標進入設定*/
+            color:gray;
+        }
+        span{ /*標記紅色*/
+            color:red;
+        }
+
+        #infomodal{
+            width: 50%;
+            border: 5pxpx solid black;
+            border-radius: 30px;
+            background-color: wheat;
+        }
+        #textmodal{
+            width: 25%;
+            border: 5pxpx solid black;
+            border-radius: 30px;
+            background-color: wheat;
+            text-align: center;
+        }
+        
+        #drop-area {
+            border: 2px dashed grey;
+            border-radius: 20px;  /*設定圓角*/       
+            width: 480px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        #drop-area.highlight {
+            border-color: red;
+        }
+        #p1 {
+            margin-top: 50px; /*設定字體與虛線上邊框距離*/
+            display: flex;
+            justify-content:center;   
+        }
+        .my-form {
+            margin-bottom: 10px; /*設定按鈕框與虛線下邊框距離*/ 
+        }
+        #gallery {
+            margin-top: 50px;/*設定上傳圖片元素(上)與按鈕的距離*/
+        }
+        #gallery img {
+            width: 150px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            vertical-align: middle;/*以中線為主的垂直位置*/
+        }
+        .button {
+            padding: 10px;
+            background: #ccc;
+            cursor: pointer;/*改變游標圖示*/
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width:30%;
+            display:block; 
+            margin: auto;
+            text-align: center;
+            font-size:18px;
+            }
+        .button:hover {
+            background: #ddd;/*游標進入時按鈕變白*/
+        }
+        #fileElem {
+            display: none; /*隱藏檔案上傳套件*/
+        }
+
+        label{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        input[type=text]{
+            border-radius: 7px;
+            height:25px;
+            width: 300px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size:25px;
+        }
+        /*body{
+            background-color:#A2C8C9;
+        }*/
+        </style>
+    </head>
+
+    <body>
+        <div style="text-align:center;"> <!--創建一個div將按鈕置中(text-align:center)-->
+        <button onclick="click1()">新增一段文字</button>
+        <button id="btn2">新增一個標題</button>
+        <button onclick="click3()">新增一個blockquote</button>
+        <button onclick="click4()">新增一個連結</button>
+        <button id="btn5">新增一張圖片</button>
+        </div>
+
+        <div id="div0">
+        <div id="div1"><p><B>元素由下往上排列</B></p></div>
+        <div id="div2"><p><B>元素由上往下排列</B></p></div>
+        <div id="div3"><p><B>元素由上往下排列</B></p></div>
+        <div id="div4"><p><B>元素由左往右排列</B></p></div>
+        <div id="div5"><p><B>元素由右至左排列</B></p></div>
+        <dialog id="infomodal">
+            <div id="drop-area">
+                <form class="my-form">
+                  <p id="p1"><b>將圖片放到這裡</b></p><br>
+                  <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                  <label class="button" for="fileElem">選擇一個圖檔</label>
+                </form>
+                <div id="gallery"></div>
+            </div>
+            <button id="close1">關閉</button>
+            <button id="enter1">插入圖片</button>
+        </dialog>
+        <dialog id="textmodal">
+            <form>
+                <label for="textenter">請輸入一個標題</label><br>
+                <input type="text" id="textenter" value="請輸入新標題"><br>
+            </form>
+            <button id="enter2" onclick="title_inner()">插入文字</button>
+            <button id="close2">關閉</button>
+        </dialog>
+
+        </div>
+
+        <script>
+        function click1(){ //設定點擊按鈕1時所產生的動作//
+            let new_p = document.createElement('p'); //創建一個p//
+            let input = document.getElementById("div1"); //在js裡引入div1,變數為input//
+            let input_p = prompt("請輸入一段文字","一段<strong>新文字</strong>");
+            new_p.innerHTML=input_p; //放在html元素p的內容//
+            input.appendChild(new_p);//將new_p放入input//
+        }
+
+        let btn2=document.querySelector("#btn2");
+        let textmodal=document.querySelector("#textmodal");
+        let close2=document.querySelector("#close2");
+        let enter2 = document.getElementById("enter2");      
+        btn2.addEventListener('click', function(){textmodal.showModal();});
+        close2.addEventListener('click', function(){textmodal.close();});
+        enter2.addEventListener('click', function(){textmodal.close();});
+        
+        function title_inner(){
+            let textenter = document.getElementById("textenter");
+            let div2 = document.getElementById("div2");
+            let new_h1 = document.createElement('h1');
+            new_h1.innerHTML=textenter.value;
+            div2.appendChild(new_h1);
+        }
+
+        function click3(){ //設定點擊按鈕3時所產生的動作//
+            let new_blockquote = document.createElement('blockquote');
+            let input = document.getElementById("div3");
+            new_blockquote.innerHTML="快訊》本土確診34,499境外78";
+            new_blockquote.cite='https://reurl.cc/OAOA8R';
+            input.appendChild(new_blockquote);
+        }
+
+        function click4(){ //設定點擊按鈕4時所產生的動作(連結))//
+            let new_link = document.createElement('a'); //創建一個a(連結元素)
+            let input = document.getElementById("div4");//在js裡引入div4,變數為input
+            let input_text1 = prompt("請輸入一個連結","https://www.google.com/");//彈跳視窗
+            new_link.innerHTML=input_text1;//放在html元素a的內容//
+            new_link.href=input_text1;//.herf元素a的連結//
+            input.appendChild(new_link); //將new_link放入input
+        }
+
+        let btn5=document.querySelector("#btn5");
+        let infomodal=document.querySelector("#infomodal");
+        let close1=document.querySelector("#close1");
+        btn5.addEventListener("click", function(){infomodal.showModal();});
+        close1.addEventListener("click", function(){infomodal.close();});
+
+        let dropArea = document.getElementById('drop-area')
+            ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false)
+            })
+
+            function preventDefaults (e) {
+            e.preventDefault()
+            e.stopPropagation()
+            }
+
+            ;['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false)
+            })
+
+            ;['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false)
+            })
+
+            function highlight(e) {
+            dropArea.classList.add('highlight')
+            }
+
+            function unhighlight(e) {
+            dropArea.classList.remove('highlight')
+            }
+
+            dropArea.addEventListener('drop', handleDrop, false)
+
+            function handleDrop(e) {
+            let dt = e.dataTransfer
+            let files = dt.files
+
+            handleFiles(files)
+            } 
+
+            function handleFiles(files) {
+            files = [...files]
+            files.forEach(uploadFile)
+            files.forEach(previewFile)
+            }
+
+
+            function uploadFile(file) {
+            let url = 'YOUR URL HERE'
+            let formData = new FormData()
+
+            formData.append('file', file)
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(() => { /* Done. Inform the user */ })
+            .catch(() => { /* Error. Inform the user */ })
+            }
+            function previewFile(file) {
+            let reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = function() {
+                let img = document.createElement('img');
+                let enter = document.getElementById("enter1");
+                let div5 = document.getElementById("div5");
+                img.src = reader.result;
+                img.style.width="40px";
+                img.style.height="40px";
+                document.getElementById('gallery').appendChild(img);
+                enter1.addEventListener('click',function(event){div5.appendChild(img);});
+                enter1.addEventListener("click", function(){infomodal.close();});
+            }
+            }
+        </script>
+    </body>
+</html>
