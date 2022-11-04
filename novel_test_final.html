@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #from_table{
+                display: block;
+            }
+            #textarea{
+                display: none;
+            }
+            #imgarea{
+                display: none;
+            }
+        
+        .using_block{
+            border: 0px solid black;
+            position: absolute;
+            width: 70%;
+            left:15%;
+            right:-15%;
+            padding: 25px;
+            font-family: 'DFKai-sb', sans-serif;
+            background:#A2C8C9;
+            text-align: center;
+
+        }
+
+        /*以下為li style設定*/
+        ul{
+            background-color: #4CAF50;
+            height:60px;
+            position: relative;
+            width: 75%;
+            left:12.5%;
+            right:-12.5%;
+            margin-bottom:0 ;
+        }
+        li{  
+            border: 0px solid black;
+            display:inline-block;
+            border-radius: 5px;
+            font-family: 'DFKai-sb', sans-serif;
+            font-size:25px;
+            background-color:white;
+            width: 150px;
+            height:60%;
+            position:relative;
+            top:20%;
+            bottom: -20%;
+            text-align: center;
+        }
+        #chang_block > ul > li a{ /*設定li字型*/
+            text-decoration: none;/*連結字型無底線*/
+            line-height:35px;/*設定字型在框線裡垂直置中*/
+            font-weight: bold;
+            color: black;
+        }
+        li:hover{ /*分頁按鈕鼠標懸浮效果ˇ*/
+            background-color:#DDDDDD;
+        }
+        
+        h1{
+            font-size:30px;
+            font-weight: bold; 
+            border: 0px dashed black;
+            border-radius: 5px;
+            padding: 5px;
+            background-color:#FFDA3D;
+        } 
+
+        /*以下為form style設定*/
+        label{ 
+            font-size:25px;
+        }
+        input[type=text]{
+            border-radius: 7px;
+            height:28px;
+            width: 23%;
+            margin-bottom: 5px;
+            font-size:20px;
+            font-family: 'DFKai-sb', sans-serif;
+        }
+        input[type=submit]{ 
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 0px solid black;
+            border-radius: 5px;/*設定圓角*/
+            font-family: 'DFKai-sb', sans-serif;
+            font-size: 25px;
+            font-weight: bold;/*字體加粗*/
+            width: 100px;
+            height:40px;
+            background-color:#4CAF50;
+        }
+        input[type=submit]:hover{ /*form送出 按鈕鼠標懸浮效果(hover)*/
+            background-color:#DDDDDD; 
+        }
+
+        /*以下為table style設定*/
+        table{  
+            font-family: 'DFKai-sb', sans-serif;
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+            background-color:blanchedalmond;
+            position:relative;
+            left: 0.5%;
+            right: -0.5%;
+            width: 99%;
+            height: 35px;
+            margin-bottom:20px;
+        }
+        td,th{
+            border: 1px solid black;
+            font-size: 25px;
+        }
+        caption{
+            margin-top:8px;
+            margin-bottom:8px;
+            font-size: 25px;
+        }
+
+        textarea{
+            border-radius:20px;
+            font-size:25px;
+            font-family: 'DFKai-sb', sans-serif;
+        }
+        
+        /*以下為imgarea style設定*/
+        #drop-area {  
+            border: 2px dashed black;
+            border-radius: 20px;          
+            width:75%;
+            font-family: 'DFKai-sb', sans-serif;
+            margin: 200px auto;
+            padding: 20px;
+            }
+        #drop-area.highlight {
+            border-color: purple;
+            }
+        p {
+            margin-top: 0;
+            font-size: 25px;
+            }
+        .my-form {
+            margin-bottom: 10px;
+            }
+        #gallery {
+            margin-top: 10px;
+            }
+        #gallery img {
+            width: 150px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            vertical-align: middle;
+            }
+        .button {
+            display: inline-block;
+            padding: 10px;
+            background: #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            }
+        .button:hover {
+            background: #ddd;
+            }
+        #fileElem {
+            display: none;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div id="chang_block">
+        <ul>
+            <li onclick="change1 ()"><a href="#form_table">角色設定</a></li>
+            <li onclick="change2 ()"><a href="#textarea">文章撰寫</a></li>
+            <li onclick="change3 ()"><a href="#imgarea">插圖放置</a></li>
+        </ul>
+        </div>
+        <div class="using_block">
+        <div id="from_table" class="model">
+            <form action="#table">
+                <h1>角色設定</h1>
+                <p style="font-size:25px; margin-bottom: 5px;"><b>請在此輸入角色基本資料</b></p>
+                <label for="name">姓名</label><br>
+                <input type="text" id="name"><br>
+                <label for="sex">性別</label><br>
+                <input type="text" id="sex"><br>
+                <label for="bmi">身高/體重</label><br>
+                <input type="text" id="bmi"><br>
+                <label for="blood_type">血型</label><br>
+                <input type="text" id="blood_type"><br>
+                <label for="sign">星座</label><br>
+                <input type="text" id="sign"><br>
+                <label for="traits">人物特點</label><br>
+                <input type="text" id="traits"><br>
+                <input type="submit" id="" onclick="type_in1()" >
+            </form>
+
+            <table id="player_name" class="model" >
+                <caption><b>角色基本資料</b></caption>
+                <tr>
+                    <th>姓名</th>
+                    <th>性別</th>
+                    <th>身高/體重</th>
+                    <th>血型</th>
+                    <th>星座</th>
+                    <th>人物特點</th>
+                </tr>                
+            </table>
+
+        </div>
+        <div id="textarea" class="model">
+            <h1>文章撰寫</h1>
+            <p style="font-size:25px; margin-bottom:5px;">請在此輸入文字</p>
+            <textarea id="novel_chapter" name="小說文章"cols="80" rows="25"></textarea><br>
+            <input type="submit"onclick="type_in2()" >
+            <p></p>
+        </div>
+
+        <div id="imgarea" class="model">
+            <h1>插圖放置</h1>
+            <div id="drop-area" >
+                <form class="my-form">
+                  <p>把圖片拖曳至此</p>
+                  <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                  <label class="button" for="fileElem">選擇檔案</label>
+                </form>
+                <div id="gallery"></div>
+            </div>
+        </div>
+    </div>    
+    
+    <script>
+        /*let change = document.getElementById("chang_block").querySelectorAll("a");//按鈕分頁跳轉//
+        let panel =document.querySelectorAll("model");
+
+        window.onload = function (){
+            paneldisplay(change[0]);
+            for (let i = 0; i < change.length; i++) {
+                change[i].addEventListener('click',function(e){
+                    e.preventDefault();
+                    paneldisplay(this);
+                });     
+            };
+
+        function paneldisplay (activePanel){
+                for (let i = 0;i< change.length; i++){
+                    console.log();
+                    if (change[i]==activePanel) {
+                        change[i].classList.add("active");
+                         panel[i].style.display=" ";
+                    } else {
+                        change[i].classList.remove("active");
+                        panel[i].style.display="none";
+                    }               
+                }
+            }
+        }*/
+
+            let mod1 = document.getElementById("from_table");
+            let mod2 = document.getElementById("textarea");
+            let mod3 = document.getElementById("imgarea");
+
+            function change1 (){
+               mod1.style.display="block";
+               mod2.style.display="none";
+               mod3.style.display="none"; 
+
+            }
+
+            function change2 (){
+               mod1.style.display="none";
+               mod2.style.display="block";
+               mod3.style.display="none";
+
+            }
+
+            function change3 (){
+               mod1.style.display="none";
+               mod2.style.display="none";
+               mod3.style.display="block";
+
+            }
+
+        //from輸入至table//
+        function type_in1 (){  
+            let input = document.getElementsByTagName('input');
+            let tab = document.getElementById("player_name");
+            let new_tr = document.createElement('tr');                
+            tab.appendChild(new_tr);
+            for(let i = 0;i<input.length-3;i++){
+                    let new_td = document.createElement('td');
+                    new_td.innerHTML=input[i].value;
+                    new_tr.appendChild(new_td)
+                }      
+            }
+
+        function type_in2 (){  
+            let input0 = document.getElementById("novel_chapter");
+            let a = document.getElementById("textarea");
+            let new_p = document.createElement('p');
+            new_p.innerHTML=input0.value;                
+            a.appendChild(new_p);
+        }
+
+        //img拖曳//
+        let dropArea = document.getElementById('drop-area') 
+            ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false)
+            })
+
+            function preventDefaults (e) {
+            e.preventDefault()
+            e.stopPropagation()
+            }
+
+            ;['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false)
+            })
+
+            ;['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false)
+            })
+
+            function highlight(e) {
+            dropArea.classList.add('highlight')
+            }
+
+            function unhighlight(e) {
+            dropArea.classList.remove('highlight')
+            }
+
+            dropArea.addEventListener('drop', handleDrop, false)
+
+            function handleDrop(e) {
+            let dt = e.dataTransfer
+            let files = dt.files
+
+            handleFiles(files)
+            } 
+
+            function handleFiles(files) {
+            files = [...files]
+            files.forEach(uploadFile)
+            files.forEach(previewFile)
+            }
+
+
+            function uploadFile(file) {
+            let url = 'YOUR URL HERE'
+            let formData = new FormData()
+
+            formData.append('file', file)
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(() => { /* Done. Inform the user */ })
+            .catch(() => { /* Error. Inform the user */ })
+            }
+            function previewFile(file) {
+            let reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = function() {
+                let img = document.createElement('img')
+                img.src = reader.result
+                document.getElementById('gallery').appendChild(img)
+            }
+            }
+        
+
+        </script>
+    </body>
+</html>
